@@ -1,0 +1,16 @@
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.abcde.conf: abcde.conf
+    ~/.conkyrc: conkyrc
+    ~/.gitconfig: gitconfig
+    ~/.i3: i3/
+    ~/.nvimrc: nvimrc
+    ~/.xprofile: xprofile
+    ~/.zlogin: zlogin
+    ~/.zshenv: zshenv
+    ~/.zshrc: zshrc
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

@@ -1,0 +1,14 @@
+# Start ssh-agent and export settings
+eval $(ssh-agent) > /dev/null
+
+# Make path available in x-shell
+export PATH="/home/motersen/bin:$PATH"
+export PATH="/home/motersen/dotfiles/bin:$PATH"
+export PATH="/home/motersen/perl5/bin:$PATH"
+export PATH="/opt/android-sdk/tools:$PATH"
+
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+        export TERM='xterm-256color'
+else
+        export TERM='xterm-color'
+fi

@@ -1,0 +1,189 @@
+# Should you change your keyboard layout some time, delete
+# this file and re-run i3-config-wizard(1).
+
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango: Source Sans Pro 10
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec terminology
+
+# kill focused window
+bindsym $mod+q kill
+
+# start launcher
+bindsym $mod+d exec rofi-run
+#bindsym $mod+d exec dmenu_run
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Mod1+h move left
+bindsym $mod+Mod1+j move down
+bindsym $mod+Mod1+k move up
+bindsym $mod+Mod1+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Mod1+Left move left
+bindsym $mod+Mod1+Down move down
+bindsym $mod+Mod1+Up move up
+bindsym $mod+Mod1+Right move right
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Mod1+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 0001 code
+bindsym $mod+2 workspace 0010 web
+bindsym $mod+3 workspace 0011 music
+bindsym $mod+4 workspace 0100 files
+bindsym $mod+5 workspace 0101 irc
+bindsym $mod+6 workspace 0110 man
+bindsym $mod+7 workspace 0111
+bindsym $mod+8 workspace 1000 audio
+bindsym $mod+9 workspace 1001
+bindsym $mod+0 workspace 1010
+
+# move focused container to workspace
+bindsym $mod+Mod1+1 exec i3-move-switch-workspace "0001 code"
+bindsym $mod+Mod1+2 exec i3-move-switch-workspace "0010 web"
+bindsym $mod+Mod1+3 exec i3-move-switch-workspace "0011 music"
+bindsym $mod+Mod1+4 exec i3-move-switch-workspace "0100 files"
+bindsym $mod+Mod1+5 exec i3-move-switch-workspace "0101 irc"
+bindsym $mod+Mod1+6 exec i3-move-switch-workspace "0110 man"
+bindsym $mod+Mod1+7 exec i3-move-switch-workspace "0111"
+bindsym $mod+Mod1+8 exec i3-move-switch-workspace "1000 audio"
+bindsym $mod+Mod1+9 exec i3-move-switch-workspace "1001"
+bindsym $mod+Mod1+0 exec i3-move-switch-workspace "1010"
+
+# reload the configuration file
+bindsym $mod+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Mod1+c restart
+# lock screen
+bindsym Control+$mod+l exec lockscreen
+# suspend
+bindsym Control+$mod+s exec lockscreen && systemctl suspend
+# hibernate
+bindsym Control+$mod+h exec lockscreen && systemctl hibernate
+# logout
+bindsym Control+$mod+x exec i3-msg exit
+# shutdown
+bindsym Control+$mod+Return exec systemctl poweroff
+# reboot
+bindcode Control+$mod+62 exec systemctl reboot
+
+# screenshot
+bindsym Print exec scrot --no-startup-id  ~/Bilder/screenshots/$(date +"%F_%H-%M-%S").png
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# class					border  backgr. text    indic.
+client.focused 			#a0a0a0 #303030 #e8e8e8 #2e9ef4
+client.focused_inactive #333333 #5F676A #ffffff #484e50
+client.unfocused        #333333 #424242 #888888 #292d2e
+client.urgent           #C10004 #900000 #ffffff #900000
+# defaults:
+#client.focused          #4c7899 #285577 #ffffff #2e9ef4
+#client.focused_inactive #333333 #5f676a #ffffff #484e50
+#client.unfocused        #333333 #222222 #888888 #292d2e
+#client.urgent           #2f343a #900000 #ffffff #900000
+#client.placeholder      #000000 #0c0c0c #ffffff #000000
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        mode dock
+        position top
+        status_command conky-i3
+        tray_output primary
+        font pango:Source Code Pro Light 8
+        colors {
+                background #303030
+				statusline #f8f8f8
+				separator  #909090
+
+				inactive_workspace #333333 #222222 #b0b0b0
+
+				#defaults:
+				#background #000000
+				#statusline #ffffff
+				#separator #666666
+
+				#focused_workspace  #4c7899 #285577 #ffffff
+				#active_workspace   #333333 #5f676a #ffffff
+				#inactive_workspace #333333 #222222 #888888
+				#urgent_workspace   #2f343a #900000 #ffffff
+        }
+}
+
+# set wallpaper
+exec --no-startup-id feh --bg-fill /usr/share/wallpapers/tetons-at-night.png
+# run compositor
+exec --no-startup-id compton -CGb

@@ -1,0 +1,49 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+no warnings 'recursion';
+
+my $process = shift @ARGV or die "No process to watch supplied";
+my $start_t = shift @ARGV || '55';
+my $stop_t = shift @ARGV || '82';
+
+print "watching $process: stop at $stop_t°C, continue at $start_t\n";
+cont();
+
+sub cont {
+	my $data = temp();
+	while (my ($core, $temp) = each %$data) {
+		if ($temp > $stop_t) {
+			print "$core is at $temp°C, stopping $process\n";
+			system("killall -s STOP $process");
+			stop();
+		}
+	}
+	sleep 5;
+	cont();
+}
+
+sub stop {
+	my $data = temp();
+	while (my ($core, $temp) = each %$data) {
+		if ($temp > $start_t) {
+			sleep 20;
+			stop();
+		}
+	}
+	print "continuing...\n";
+	system("killall -s CONT $process");
+	cont();
+}
+
+sub temp {
+	my %data;
+	my @temps = `sensors`;
+	foreach (@temps) {
+		if (/(Core \d):\s*\+(\d+)/) {
+			$data{$1} = $2;
+		}
+	}
+	\%data;
+}

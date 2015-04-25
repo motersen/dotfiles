@@ -1,0 +1,19 @@
+#!/usr/bin/zsh
+
+i3-msg workspace 1000 audio
+
+### --- pulse-control --- ###
+i3-msg exec pavucontrol
+
+# align windows horizontally
+i3-msg split h
+
+### --- Equalizer --- ###
+i3-msg exec qpaeq
+sleep .5
+
+# shrink pavucontrol
+i3-msg focus left
+i3-msg resize shrink width 10 px
+
+exit 0
