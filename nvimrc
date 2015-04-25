@@ -51,7 +51,13 @@ augroup Projects
 augroup END
 
 " Set word-wrapping for git commit logs
-autocmd Filetype gitcommit setlocal wrap linebreak nolist fo+=at textwidth=72
+autocmd Filetype gitcommit setlocal wrap linebreak nolist
+			\ formatoptions+=at textwidth=72
+
+autocmd FileType plaintex,tex setlocal wrap linebreak nolist
+			\ formatoptions+=at textwidth=72
+
+let g:tex_flavor='latex'
 
 " turn syntax highlighting on and
 " show the file name in the terminal title bar
