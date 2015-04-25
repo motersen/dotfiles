@@ -1,0 +1,17 @@
+#!/usr/bin/env perl
+
+# Dirty Hack of a parser to find less boring commit messages
+
+use strict;
+use warnings;
+
+use LWP::Simple;
+use XML::LibXML;
+
+my $url = 'http://whatthecommit.com/';
+my $con = get($url) or die "Could not fetch page";
+my $parser = XML::LibXML->new(URI => $url);
+my $dom = $parser->load_html(string => $con);
+my @nodes = $dom->getElementsByTagName("p");
+print $nodes[0]->textContent;
+print $url, $nodes[1] =~ /href="\/([0-9a-f]*)/, "\n";
