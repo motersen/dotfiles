@@ -22,6 +22,7 @@ zle -N zle-line-init > /dev/null
 zle -N zle-keymap-select > /dev/null
 
 # color ls output in terminal
+alias diff='diff -u'
 alias ls='ls --color=auto'
 alias l='ls -lh'
 alias la='ls -lAh'
