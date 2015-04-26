@@ -54,9 +54,6 @@ augroup END
 autocmd Filetype gitcommit setlocal wrap linebreak nolist
 			\ formatoptions+=at textwidth=72
 
-autocmd FileType plaintex,tex setlocal wrap linebreak nolist
-			\ formatoptions+=at textwidth=72
-
 let g:tex_flavor='latex'
 
 " turn syntax highlighting on and
