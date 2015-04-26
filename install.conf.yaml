@@ -6,6 +6,7 @@
     ~/.conkyrc: conkyrc
     ~/.gitconfig: gitconfig
     ~/.i3: i3/
+    ~/.nvim: nvim/
     ~/.nvimrc: nvimrc
     ~/.xprofile: xprofile
     ~/.zlogin: zlogin
