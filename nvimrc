@@ -1,32 +1,14 @@
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-" Required:
-  set runtimepath+=$HOME/.nvim/bundle/neobundle.vim/
-endif
-" Required:
-call neobundle#begin(expand("$HOME/.nvim/bundle"))
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+call plug#begin('~/.nvim/plugged')
 
-NeoBundle 'morhetz/gruvbox'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
+Plug 'bling/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'altercation/vim-colors-solarized'
 
-" Required:
-call neobundle#end()
+call plug#end()
 
-" Required:
-" Set indent before plugin to avoid indentation problems
 filetype indent plugin on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
 
 set number relativenumber
 
