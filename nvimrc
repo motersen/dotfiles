@@ -10,6 +10,7 @@ call neobundle#begin(expand("$HOME/.nvim/bundle"))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'morhetz/gruvbox'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-fugitive'
@@ -26,8 +27,6 @@ filetype indent plugin on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
-
-execute pathogen#infect()
 
 set number relativenumber
 
