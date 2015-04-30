@@ -36,7 +36,8 @@ diskspace () {
 
 unreq-size () {
 	pacman -Qdt | awk '{print $1;}' | xargs pacman -Qi \
-		| awk '/^Name/ {print;} /^Installed Size/ {print;}'
+		| awk '/^Name/ {printf $3 " ";} /^Installed Size/ {print $4 $5;}' \
+		| column -t | sort -hrk2,2
 }
 
 export EDITOR="nvim"
