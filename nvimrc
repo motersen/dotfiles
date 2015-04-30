@@ -10,11 +10,6 @@ call plug#end()
 
 filetype indent plugin on
 
-set number relativenumber
-
-" Set Line Number color to grey
-highlight LineNr ctermfg=grey
-
 " Navigate through wrapped lines like they appear in the editor
 nnoremap j gj
 nnoremap k gk
@@ -25,10 +20,7 @@ set shiftwidth=4
 set tabstop=4
 set updatetime=2000
 
-" Project-specific settings
-augroup Projects
-	au BufRead,BufEnter /etc/fstab set nowrap
-augroup END
+au BufRead,BufEnter /etc/fstab set nowrap
 
 " Set word-wrapping for git commit logs
 autocmd Filetype gitcommit setlocal wrap linebreak nolist
@@ -36,10 +28,13 @@ autocmd Filetype gitcommit setlocal wrap linebreak nolist
 
 let g:tex_flavor='latex'
 
-" turn syntax highlighting on and
-" show the file name in the terminal title bar
-syn on se title
 
+" Display filename in title bar
+set title
+set number relativenumber
+" Set Line Number color to grey
+highlight LineNr ctermfg=grey
+syntax on
 set background=dark
 colorscheme gruvbox
 
