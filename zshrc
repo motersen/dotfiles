@@ -34,6 +34,11 @@ diskspace () {
   du -ah $1 2>/dev/null | tail -1
 }
 
+unreq-size () {
+	pacman -Qdt | awk '{print $1;}' | xargs pacman -Qi \
+		| awk '/^Name/ {print;} /^Installed Size/ {print;}'
+}
+
 export EDITOR="nvim"
 export PERL_LOCAL_LIB_ROOT="$PERL_LOCAL_LIB_ROOT:/home/motersen/perl5"
 export PERL_MB_OPT="--install_base /home/motersen/perl5"
