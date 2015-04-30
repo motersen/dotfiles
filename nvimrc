@@ -40,7 +40,6 @@ let g:tex_flavor='latex'
 " show the file name in the terminal title bar
 syn on se title
 
-syntax enable
 set background=dark
 colorscheme gruvbox
 
