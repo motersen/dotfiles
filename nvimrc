@@ -15,7 +15,6 @@ set number relativenumber
 " Set Line Number color to grey
 highlight LineNr ctermfg=grey
 
-nnoremap , :
 " Navigate through wrapped lines like they appear in the editor
 nnoremap j gj
 nnoremap k gk
