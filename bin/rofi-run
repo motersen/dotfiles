@@ -1,6 +1,3 @@
 #!/usr/bin/sh
 
-rofi -show run -location 1 -width 100 -lines 10 \
-	 -font "Source Sans Pro Regular 11" \
-	 -bc "#a0a0a0" -bg "#303030" -bgalt "#343434" -fg "#e8e8e8" -opacity 90 \
-	 -terminal "terminology" -disable-history
+rofi -show run

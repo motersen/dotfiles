@@ -9,6 +9,7 @@
     ~/.nvim: nvim/
     ~/.nvimrc: nvimrc
     ~/.xprofile: xprofile
+    ~/.Xresources: Xresources
     ~/.zlogin: zlogin
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc

@@ -1,0 +1,11 @@
+rofi.location: 1
+rofi.width: 100
+rofi.lines: 10
+rofi.font: Source Sans Pro Regular 11
+rofi.bc: #a0a0a0
+rofi.bg: #303030
+rofi.bgalt: #343434
+rofi.fg: #e8e8e8
+rofi.opacity: 90
+rofi.terminal: terminology
+rofi.disable-history: yes
