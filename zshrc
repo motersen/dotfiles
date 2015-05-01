@@ -47,12 +47,4 @@ export PERL_MM_OPT="INSTALL_BASE=/home/motersen/perl5"
 export PERL5LIB="/home/motersen/perl5/lib/perl5:$PERL5LIB"
 export KEYTIMEOUT=1
 
-# enable 256 colors (vim)
-if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-        export TERM='xterm-256color'
-else
-        export TERM='xterm-color'
-fi
-
-# load perlbrew
 source ~/perl5/perlbrew/etc/bashrc >/dev/null

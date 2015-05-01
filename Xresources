@@ -7,5 +7,14 @@ rofi.bg: #303030
 rofi.bgalt: #343434
 rofi.fg: #e8e8e8
 rofi.opacity: 90
-rofi.terminal: terminology
+rofi.terminal: urxvt
 rofi.disable-history: yes
+
+URxvt.background: #000000
+URxvt.transparent: true
+URxvt.shading: 25
+URxvt.foreground: #d0d0d0
+URxvt.cursorColor: #e8e8e8
+URxvt.font: xft:DejaVu Sans Mono for Powerline:book:pixelsize=13
+URxvt.letterSpace: .4
+URxvt.scrollBar: off
