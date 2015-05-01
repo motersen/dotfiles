@@ -8,7 +8,7 @@ rofi.bgalt: #343434
 rofi.fg: #e8e8e8
 rofi.opacity: 90
 rofi.terminal: urxvt
-rofi.disable-history: yes
+rofi.disable-history: true
 
 URxvt.background: #000000
 URxvt.transparent: true
