@@ -10,3 +10,5 @@
 	name = Moritz Petersen
 [log]
 	abbrevCommit = yes
+[alias]
+	diffstat = diff --stat
