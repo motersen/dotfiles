@@ -14,8 +14,8 @@ font pango: Source Sans Pro 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec urxvt
+# start a terminal client
+bindsym $mod+Return exec urxvtc
 
 # kill focused window
 bindsym $mod+q kill
@@ -187,3 +187,5 @@ bar {
 exec --no-startup-id feh --bg-fill /usr/share/wallpapers/tetons-at-night.png
 # run compositor
 exec --no-startup-id compton -CGb
+# start urxvt daemon
+exec --no-startup-id urxvtd -q -f -o
