@@ -48,5 +48,5 @@ TEXT
     ${if_match ${wireless_link_qual_perc wlp3s0}>10}"\#3ee600"
     ${else}"\#ff0000"${endif} },
   { "full_text" : "${execi 60
-	uname -r | awk '{match($0, /([\.\-]?[0-9]+)+/); print substr($0, 1, RLENGTH);}'}"},
+	uname -r | sed -r 's:([0-9\.]+(-[0-9]+)?).*:\1:'}"},
   { "full_text" : "${time %a %d %b %k:%M:%S}"}],
