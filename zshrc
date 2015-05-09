@@ -24,7 +24,8 @@ zle -N zle-keymap-select > /dev/null
 # color ls output in terminal
 alias diff='diff -u'
 alias ls='ls --color=auto'
-alias l='ls -lh'
+alias l='ls -1'
+alias ll='ls -lh'
 alias la='ls -lAh'
 alias grep='grep --color'
 alias path="echo $PATH | awk '{gsub(/:/, \"\n\", \$0); print}' | sort"
