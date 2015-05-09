@@ -20,6 +20,10 @@ set shiftwidth=4
 set tabstop=4
 set updatetime=2000
 
+" sudo-write
+command W :execute ':silent w !sudo tee % > /dev/null' | :e!
+command Wq :execute ':W' | :q
+
 au BufRead,BufEnter /etc/fstab set nowrap
 
 " Set word-wrapping for git commit logs
