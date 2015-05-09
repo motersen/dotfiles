@@ -18,3 +18,5 @@ URxvt.cursorColor: #e8e8e8
 URxvt.font: xft:DejaVu Sans Mono for Powerline:book:pixelsize=13
 URxvt.letterSpace: .4
 URxvt.scrollBar: off
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
