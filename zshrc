@@ -22,7 +22,6 @@ zle -N zle-line-init > /dev/null
 zle -N zle-keymap-select > /dev/null
 
 # color ls output in terminal
-alias diff='diff -u'
 alias ls='ls --color=auto'
 alias l='ls -1'
 alias ll='ls -lh'
@@ -30,6 +29,10 @@ alias la='ls -lAh'
 alias grep='grep --color'
 alias path="echo $PATH | awk '{gsub(/:/, \"\n\", \$0); print}' | sort"
 alias addon-sdk="source /opt/addon-sdk/bin/activate"
+
+diff () {
+	colordiff -u $* | less -R
+}
 
 diskspace () {
   du -ah $1 2>/dev/null | tail -1

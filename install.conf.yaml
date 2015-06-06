@@ -3,6 +3,7 @@
 - link:
     ~/.dotfiles: ''
     ~/.abcde.conf: abcde.conf
+    ~/.colordiffrc: colordiffrc
     ~/.conkyrc: conkyrc
     ~/.gitconfig: gitconfig
     ~/.i3: i3/
