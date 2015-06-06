@@ -4,6 +4,7 @@
     ~/.dotfiles: ''
     ~/.abcde.conf: abcde.conf
     ~/.colordiffrc: colordiffrc
+    ~/.config/Thunar/uca.xml: uca.xml
     ~/.conkyrc: conkyrc
     ~/.gitconfig: gitconfig
     ~/.i3: i3/

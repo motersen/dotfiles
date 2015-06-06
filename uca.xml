@@ -1,0 +1,13 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>image-x-generic</icon>
+	<name>View Images</name>
+	<unique-id>1433613609601956-2</unique-id>
+	<command>feh -F -Z --start-at %f %d</command>
+	<description>Slideshow of all images in this directory</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<image-files/>
+</action>
+</actions>
