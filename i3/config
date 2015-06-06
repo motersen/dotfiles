@@ -118,6 +118,9 @@ bindcode Control+$mod+62 exec systemctl reboot
 # screenshot
 bindsym Print exec scrot --no-startup-id  ~/Bilder/screenshots/$(date +"%F_%H-%M-%S").png
 
+# change wallpaper
+bindsym $mod+w exec --no-startup-id feh -z --bg-fill ~/wallpapers
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -184,7 +187,7 @@ bar {
 }
 
 # set wallpaper
-exec --no-startup-id feh --bg-fill /usr/share/wallpapers/tetons-at-night.png
+exec --no-startup-id feh -z --bg-fill ~/wallpapers
 # run compositor
 exec --no-startup-id compton -CGb
 # start urxvt daemon
