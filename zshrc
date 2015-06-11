@@ -22,6 +22,13 @@ function zle-line-init zle-keymap-select {
     zle reset-prompt
 }
 
+function paste {
+	LBUFFER+=`xclip -o`
+}
+
+zle -N paste
+bindkey '^[[2~' paste
+
 zle -N zle-line-init > /dev/null
 zle -N zle-keymap-select > /dev/null
 
