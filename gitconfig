@@ -12,3 +12,4 @@
 	abbrevCommit = yes
 [alias]
 	diffstat = diff --stat
+	co = checkout
