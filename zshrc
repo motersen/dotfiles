@@ -11,6 +11,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+nbsp=$'\u00a0'
+PROMPT="%n %? %~:$nbsp"
+bindkey -s $nbsp '^u'
+
 # Display [NORMAL] tag when in cmd mode
 function zle-line-init zle-keymap-select {
     VIM_PROMPT="[% NORMAL]%"
