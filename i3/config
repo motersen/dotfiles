@@ -74,6 +74,10 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# move to next/previous workspace
+bindsym $mod+Prior workspace prev
+bindsym $mod+Next workspace next
+
 # switch to workspace
 bindsym $mod+1 workspace 0001 code
 bindsym $mod+2 workspace 0010 web
