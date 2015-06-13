@@ -55,6 +55,15 @@ zle -N cmd-paste
 bindkey '^[[2~' paste
 bindkey -M vicmd '^[[2~' cmd-paste
 
+# prepend sudo to a command while entering it
+function prepend-sudo {
+	BUFFER="sudo $BUFFER"
+	CURSOR=$#BUFFER
+}
+zle -N prepend-sudo
+
+bindkey -M vicmd '#' prepend-sudo
+
 # color ls output in terminal
 alias ls='ls --color=auto'
 alias l='ls -1'
