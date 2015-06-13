@@ -15,12 +15,29 @@ nbsp=$'\u00a0'
 PROMPT="%n %? %~:$nbsp"
 bindkey -s $nbsp '^u'
 
-# Display [NORMAL] tag when in cmd mode
-function zle-line-init zle-keymap-select {
-    VIM_PROMPT="[% NORMAL]%"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
-    zle reset-prompt
+vim_ins_mode="%{$fg[cyan]%}[INSERT]%{$reset_color%}"
+vim_cmd_mode="%{$fg[green]%}[NORMAL]%{$reset_color%}"
+vim_mode=$vim_ins_mode
+
+function zle-keymap-select {
+  vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+  RPROMPT=$vim_mode
+  zle reset-prompt
 }
+zle -N zle-keymap-select
+
+function zle-line-finish {
+  vim_mode=$vim_ins_mode
+  RPROMPT=$vim_mode
+}
+zle -N zle-line-finish
+
+function TRAPINT() {
+  vim_mode=$vim_ins_mode
+  return $(( 128 + $1 ))
+}
+
+RPROMPT=$vim_mode
 
 function paste {
 	LBUFFER+=`xclip -o`
@@ -28,9 +45,6 @@ function paste {
 
 zle -N paste
 bindkey '^[[2~' paste
-
-zle -N zle-line-init > /dev/null
-zle -N zle-keymap-select > /dev/null
 
 # color ls output in terminal
 alias ls='ls --color=auto'
