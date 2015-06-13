@@ -11,6 +11,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# enable colors
+autoload -U colors && colors
+
 nbsp=$'\u00a0'
 PROMPT="%n %? %~:$nbsp"
 bindkey -s $nbsp '^u'
