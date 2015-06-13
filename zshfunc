@@ -1,0 +1,13 @@
+diff () {
+	colordiff -u $* | less -R
+}
+
+diskspace () {
+  du -ah $1 2>/dev/null | tail -1
+}
+
+unreq-size () {
+	pacman -Qdt | awk '{print $1;}' | xargs pacman -Qi \
+		| awk '/^Name/ {printf $3 " ";} /^Installed Size/ {print $4 $5;}' \
+		| column -t | sort -hrk2,2
+}

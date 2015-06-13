@@ -13,8 +13,12 @@
     ~/.xprofile: xprofile
     ~/.Xresources: Xresources
     ~/.zlogin: zlogin
+    ~/.zshalias: zshalias
+    ~/.zshbind: zshbind
     ~/.zshenv: zshenv
+    ~/.zshfunc: zshfunc
     ~/.zshrc: zshrc
+    ~/.zshwidget: zshwidget
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
