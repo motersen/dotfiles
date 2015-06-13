@@ -42,9 +42,18 @@ RPROMPT=$vim_mode
 function paste {
 	LBUFFER+=`xclip -o`
 }
-
 zle -N paste
+
+function cmd-paste {
+	zle vi-insert
+	paste
+	zle vi-cmd-mode
+}
+zle -N cmd-paste
+
+# paste primary buffer by pressing <Insert>
 bindkey '^[[2~' paste
+bindkey -M vicmd '^[[2~' cmd-paste
 
 # color ls output in terminal
 alias ls='ls --color=auto'
