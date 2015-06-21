@@ -33,5 +33,3 @@ export PERL_MB_OPT="--install_base /home/motersen/perl5"
 export PERL_MM_OPT="INSTALL_BASE=/home/motersen/perl5"
 export PERL5LIB="/home/motersen/perl5/lib/perl5:$PERL5LIB"
 export KEYTIMEOUT=1
-
-source ~/perl5/perlbrew/etc/bashrc >/dev/null
