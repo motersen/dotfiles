@@ -12,5 +12,6 @@
 	abbrevCommit = yes
 [alias]
 	diffstat = diff --stat
+	ci = commit -v
 	co = checkout
 	st = status --short
