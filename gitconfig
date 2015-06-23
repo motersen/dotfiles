@@ -13,3 +13,4 @@
 [alias]
 	diffstat = diff --stat
 	co = checkout
+	st = status --short
