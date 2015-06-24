@@ -14,10 +14,10 @@ compinit
 # enable colors
 autoload -U colors && colors
 
-source .zshalias
-source .zshfunc
-source .zshwidget
-source .zshbind
+source ~/.zshalias
+source ~/.zshfunc
+source ~/.zshwidget
+source ~/.zshbind
 
 # Display username, last exit status and pwd in prompt
 # Remove prompt when pasting previous commands
