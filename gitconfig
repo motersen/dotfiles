@@ -14,4 +14,6 @@
 	diffstat = diff --stat
 	ci = commit -v
 	co = checkout
+	lc = diff HEAD~1..HEAD
+	lcs = diff --stat HEAD~1..HEAD
 	st = status --short
