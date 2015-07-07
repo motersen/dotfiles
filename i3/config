@@ -14,15 +14,8 @@ font pango: Source Sans Pro 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal client
-bindsym $mod+Return exec urxvtc
-
 # kill focused window
 bindsym $mod+q kill
-
-# start launcher
-bindsym $mod+d exec rofi-run
-#bindsym $mod+d exec dmenu_run
 
 # change focus
 bindsym $mod+h focus left
@@ -106,24 +99,6 @@ bindsym $mod+Mod1+0 exec i3-move-switch-workspace "1010"
 bindsym $mod+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Mod1+c restart
-# lock screen
-bindsym Control+$mod+l exec lockscreen
-# suspend
-bindsym Control+$mod+s exec lockscreen && systemctl suspend
-# hibernate
-bindsym Control+$mod+h exec lockscreen && systemctl hibernate
-# logout
-bindsym Control+$mod+x exec i3-msg exit
-# shutdown
-bindsym Control+$mod+Return exec systemctl poweroff
-# reboot
-bindcode Control+$mod+62 exec systemctl reboot
-
-# screenshot
-bindsym Print exec scrot --no-startup-id  ~/Bilder/screenshots/$(date +"%F_%H-%M-%S").png
-
-# change wallpaper
-bindsym $mod+w exec --no-startup-id feh -z --bg-fill ~/wallpapers
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

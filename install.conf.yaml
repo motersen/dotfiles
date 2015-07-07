@@ -11,6 +11,7 @@
     ~/.i3: i3/
     ~/.nvim: nvim/
     ~/.nvimrc: nvimrc
+    ~/.xbindkeysrc.scm: xbindkeysrc.scm
     ~/.xmodmap: xmodmap
     ~/.xprofile: xprofile
     ~/.Xresources: Xresources
