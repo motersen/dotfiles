@@ -4,7 +4,7 @@ alias l='ls -1'
 alias ll='ls -lh'
 alias la='ls -lAh'
 alias grep='grep --color'
-alias path="echo $PATH | sed 's|:|\\n|g' | sort"
+alias path="echo \$PATH | sed 's|:|\\n|g' | sort"
 alias addon-sdk="cd /opt/addon-sdk \
 				 && source bin/activate \
 				 && cd - > /dev/null"
