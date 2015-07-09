@@ -8,7 +8,7 @@ install:
 	@curl -fLso 'nvim/.nvim/autoload/plug.vim' --create-dirs\
 		'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 	@echo "Installing vim-plug Packages"
-	@nvim -c "PlugUpdate" -c "qa" > /dev/null
+	@nvim -c "PlugUpdate" > /dev/null
 	@rm packages.mk
 
 clean:
