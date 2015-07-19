@@ -1,0 +1,22 @@
+#!/usr/bin/scsh -s
+!#
+
+(define cli-args command-line-arguments)
+
+(define (next-arg)
+  (if (null? cli-args)
+	#f
+	(let ((arg (car cli-args)))
+	  (set! cli-args (cdr cli-args))
+	  arg)))
+
+(let ((n (or (next-arg) "1"))
+	  (dir (next-arg)))
+  (map
+	(lambda (file)
+	  (display file) (newline))
+	(run/strings
+	  (| ,(if dir
+			`(ls -1t ,dir)
+			'(ls -1t))
+		 (head -n ,n)))))
