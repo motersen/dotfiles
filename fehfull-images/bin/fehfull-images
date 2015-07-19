@@ -1,0 +1,10 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+local $" = "\n";
+
+open my $pipe, "| feh -F -Y -Z -f -";
+print $pipe "@ARGV";
+close $pipe;

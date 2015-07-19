@@ -1,8 +1,0 @@
-#!/usr/bin/scsh -s
-!#
-
-(let* ((path (car (run/strings (realpath ,(argv 1)))))
-	   (dir (car (run/strings (dirname ,path)))))
-  (exec-epf
-	(feh -F -Z --start-at
-		 ,path ,dir)))
