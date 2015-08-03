@@ -1,5 +1,5 @@
 #!/usr/bin/sh
 
 scrot /tmp/lockstat.png
-convert /tmp/lockstat.png -blur 2x1 /tmp/lockscreen.png
+vips gaussblur /tmp/lockstat.png /tmp/lockscreen.png 1
 i3lock -i /tmp/lockscreen.png
