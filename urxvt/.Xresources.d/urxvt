@@ -1,6 +1,5 @@
-URxvt.background: #000000
-URxvt.transparent: true
-URxvt.shading: 25
+URxvt.depth: 32
+URxvt.background: [75]#000000
 URxvt.foreground: #d0d0d0
 URxvt.cursorColor: #e8e8e8
 URxvt.font: *-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
