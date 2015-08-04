@@ -26,5 +26,7 @@ urxvtd -q -f -o &
 compton -CGb &
 # set wallpaper
 feh -z --bg-fill ~/wallpapers
+# set up f.lux
+xflux-run
 
 exec i3
