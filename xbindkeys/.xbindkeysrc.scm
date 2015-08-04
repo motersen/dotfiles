@@ -2,7 +2,7 @@
 (xbindkey '(Mod4 Return) "urxvtc")
 
 ;; launcher
-(xbindkey '(Mod4 d) "rofi-run")
+(xbindkey '(Mod4 d) "dmenu-run")
 
 ;; lock screen
 (xbindkey '(Control Mod4 l) "lockscreen")
