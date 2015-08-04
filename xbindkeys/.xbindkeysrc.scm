@@ -1,5 +1,5 @@
 ;; start terminal client
-(xbindkey '(Mod4 Return) "urxvtc")
+(xbindkey '(Mod4 Shift Return) "urxvtc")
 
 ;; launcher
 (xbindkey '(Mod4 d) "dmenu-run")
