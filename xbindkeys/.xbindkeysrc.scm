@@ -1,10 +1,3 @@
-;; end x session and log out
-(define (xlogout)
-	(run-command "i3-msg exit"))
-
-
-;;; BINDINGS
-
 ;; start terminal client
 (xbindkey '(Mod4 Return) "urxvtc")
 
@@ -19,9 +12,6 @@
 
 ;; hibernate
 (xbindkey '(Control Mod4 h) "lockscreen && systemctl hibernate")
-
-;; logout
-(xbindkey-function '(Control Mod4 x) xlogout)
 
 ;; shutdown
 (xbindkey '(Control Mod4 Return) "systemctl poweroff")
