@@ -29,4 +29,4 @@ feh -z --bg-fill ~/wallpapers
 # set up f.lux
 xflux-run
 
-exec i3
+exec dwm
