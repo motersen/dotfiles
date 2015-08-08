@@ -1,3 +1,4 @@
 #!/usr/bin/sh
 
-exec dmenu_run -fn "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*"
+exec dmenu_run -fn "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*" \
+			   -nb "#303030" -nf "#bbbbbb" -sb "#404040" -sf "#f0f0f0"
