@@ -1,0 +1,14 @@
+out_to_console yes
+out_to_x no
+background no
+update_interval 2
+total_run_times 0
+use_spacer none
+
+if_up_strictness address
+
+TEXT
+${if_up enp2s0}e | ${endif}\
+${if_up wlp3s0}w ${wireless_link_qual_perc wlp3s0}% | ${endif}\
+cpu ${cpu}% | m ${memperc}% | s ${swapperc}% | \
+${time %a %d %b %T}

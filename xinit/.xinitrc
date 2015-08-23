@@ -28,5 +28,7 @@ compton -CGb &
 feh -z --bg-fill ~/wallpapers
 # set up f.lux
 xflux-run
+# start conky
+conky-dwm
 
 exec dwm
