@@ -1,7 +1,3 @@
-diff () {
-	colordiff -u $* | less -R
-}
-
 diskspace () {
   du -ah $1 2>/dev/null | tail -1
 }
