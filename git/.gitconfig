@@ -11,7 +11,7 @@
 [log]
 	abbrevCommit = yes
 [alias]
-	diffstat = diff --stat
+	ds = diff --stat
 	ci = commit -v
 	co = checkout
 	lc = diff HEAD~1..HEAD
