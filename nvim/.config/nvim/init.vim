@@ -1,4 +1,4 @@
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'

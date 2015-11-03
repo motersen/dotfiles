@@ -5,7 +5,7 @@ install:
 	@echo $(PACKAGES)
 	@stow $(PACKAGES)
 	@echo "Bootstrapping plug.vim"
-	@curl -fLso 'nvim/.nvim/autoload/plug.vim' --create-dirs\
+	@curl -fLso 'nvim/.config/nvim/autoload/plug.vim' --create-dirs\
 		'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 	@echo "Installing vim-plug Packages"
 	@nvim -c "PlugUpdate" > /dev/null
