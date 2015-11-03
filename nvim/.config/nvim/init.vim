@@ -46,6 +46,9 @@ set number relativenumber
 " Set Line Number color to grey
 highlight LineNr ctermfg=grey
 
+" Highlight current line
+set cursorline
+
 syntax on
 set background=dark
 colorscheme gruvbox
