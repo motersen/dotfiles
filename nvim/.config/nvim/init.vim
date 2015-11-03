@@ -58,6 +58,13 @@ let g:airline_theme='simple'
 set laststatus=2
 " }}}
 
+" Folds {{{
+set foldenable
+
+" Open/Close folds with space
+nnoremap <space> za
+" }}}
+
 set updatetime=2000
 
 " vim:foldmethod=marker:foldlevel=0
