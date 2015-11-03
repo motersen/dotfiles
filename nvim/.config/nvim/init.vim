@@ -36,6 +36,13 @@ command Wq :execute ':W' | :q
 " Navigate through wrapped lines like they appear in the editor
 nnoremap j gj
 nnoremap k gk
+
+" Leader Shortcuts {{{
+let mapleader=","
+
+" Turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+" }}}
 " }}}
 
 " GUI {{{
