@@ -17,6 +17,9 @@ fi
 # load keybindings
 xbindkeys
 
+# map caps lock to control
+setxkbmap -layout de -option ctrl:nocaps
+
 # Load Xresources files
 cat 2> /dev/null $HOME/.Xresources.d/* | xrdb
 
