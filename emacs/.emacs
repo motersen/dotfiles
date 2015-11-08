@@ -10,6 +10,9 @@
   (add-hook 'lisp-mode-hook tab-width-2)
   (add-hook 'scheme-mode-hook tab-width-2))
 
+(let ((tab-width-4 (set-tab-width 4)))
+	(add-hook 'shell-script-mode tab-width-4))
+
 ;;; Appearance
 
 ; disable scroll-, tool-, and menu-bar
