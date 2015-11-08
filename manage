@@ -1,0 +1,65 @@
+#!/usr/bin/sh
+
+# append list of all visible subdirectories to packages
+find_packages () {
+	find . -maxdepth 1 -type d "!" -samefile . "!" -name ".*" -printf "$1%f\n" | sort >>packages;
+}
+
+# launch editor to select packages
+select_packages () {
+	$EDITOR packages;
+}
+
+# filter out comments and empty lines
+filter_packages () {
+	awk '/^[^#\n]/' packages;
+}
+
+run_hook () {
+	if [ -x ".hooks/$1" ]; then
+		./.hooks/$1;
+	fi
+}
+
+# remove package selection list
+remove_pkg_list () {
+	rm -f packages;
+}
+
+install () {
+	cat <<EOF >packages;
+# Comment or remove all packages you do not want to install
+
+EOF
+	find_packages;
+	select_packages &&
+		for pkg in $(filter_packages); do
+			# install package
+			stow -v $pkg;
+			# execute post-install hooks
+			run_hook $pkg;
+		done;
+	remove_pkg_list;
+}
+
+remove () {
+	cat <<EOF >packages;
+# Uncomment all packages you want to remove
+
+EOF
+	find_packages "# ";
+	select_packages &&
+		for pkg in $(filter_packages); do
+			# remove package
+			stow -Dv $pkg;
+		done;
+	remove_pkg_list;
+}
+
+if [ $1 = "install" ]; then
+	install;
+else
+	if [ $1 = "remove" ]; then
+		remove;
+	fi
+fi
