@@ -1,6 +1,9 @@
 ;; start terminal client
 (xbindkey '(Mod4 Shift Return) "urxvtc")
 
+;; launch emacs
+(xbindkey '(Control Mod1 e) "emacs")
+
 ;; launcher
 (xbindkey '(Mod4 d) "dmenu-run")
 
