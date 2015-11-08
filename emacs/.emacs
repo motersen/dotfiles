@@ -21,3 +21,6 @@
   (menu-bar-mode -1))
 
 (load-theme 'tango-dark)
+
+; don't show the start screen
+(setq inhibit-startup-screen t)
