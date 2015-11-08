@@ -23,6 +23,11 @@
 (if (fboundp 'menu-bar-mode)
 	(menu-bar-mode -1))
 
+; display line numbers on the left
+(global-linum-mode)
+; display column number in modeline
+(column-number-mode)
+
 (load-theme 'tango-dark)
 
 ; don't show the start screen
