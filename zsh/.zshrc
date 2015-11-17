@@ -2,7 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -v
+bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/motersen/.zshrc'
@@ -24,8 +24,6 @@ source ~/.zshbind
 nbsp=$'\u00a0'
 PROMPT="%n %? %~:$nbsp"
 bindkey -s $nbsp '^u'
-
-RPROMPT=$vim_mode
 
 export EDITOR="nvim"
 export PERL_LOCAL_LIB_ROOT="$PERL_LOCAL_LIB_ROOT:/home/motersen/perl5"

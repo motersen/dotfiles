@@ -1,37 +1,8 @@
-vim_ins_mode="%{$fg[cyan]%}[INSERT]%{$reset_color%}"
-vim_cmd_mode="%{$fg[green]%}[NORMAL]%{$reset_color%}"
-vim_mode=$vim_ins_mode
-
-function zle-keymap-select {
-  vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
-  RPROMPT=$vim_mode
-  zle reset-prompt
-}
-zle -N zle-keymap-select
-
-function zle-line-finish {
-  vim_mode=$vim_ins_mode
-  RPROMPT=$vim_mode
-}
-zle -N zle-line-finish
-
-function TRAPINT() {
-  vim_mode=$vim_ins_mode
-  return $(( 128 + $1 ))
-}
-
 # paste primary buffer at current cursor position
 function paste {
 	LBUFFER+=`xclip -o`
 }
 zle -N paste
-
-function cmd-paste {
-	zle vi-insert
-	paste
-	zle vi-cmd-mode
-}
-zle -N cmd-paste
 
 # prepend sudo to a command while entering it
 function prepend-sudo {

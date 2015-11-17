@@ -1,6 +1,5 @@
 # <Insert>
 bindkey '^[[2~' paste
-bindkey -M vicmd '^[[2~' cmd-paste
 
 # <Alt>+#
 bindkey '^[#' prepend-sudo
