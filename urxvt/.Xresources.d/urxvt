@@ -4,11 +4,8 @@ URxvt.foreground: #d0d0d0
 URxvt.cursorColor: #e8e8e8
 URxvt.font: *-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
 URxvt.scrollBar: off
-! Use vim-like/Emacs scrolling keybindings
-URxvt.keysym.K: command:\033]720;1\007
-URxvt.keysym.J: command:\033]721;1\007
-URxvt.keysym.Control-p: command:\033]720;1\007
-URxvt.keysym.Control-n: command:\033]721;1\007
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
 ! disable Unicode insert mode
 URxvt.iso14755: false
 URxvt.iso14755_52: false
