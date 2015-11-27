@@ -32,3 +32,10 @@
 
 ; don't show the start screen
 (setq inhibit-startup-screen t)
+
+;; ELPA Repos
+
+(require 'package)
+(add-to-list 'package-archives
+						 '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
