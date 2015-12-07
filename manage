@@ -56,10 +56,7 @@ EOF
 	remove_pkg_list;
 }
 
-if [ $1 = "install" ]; then
-	install;
-else
-	if [ $1 = "remove" ]; then
-		remove;
-	fi
-fi
+case $1 in
+    "install") install;;
+    "remove") remove;;
+esac
