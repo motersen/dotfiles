@@ -29,8 +29,8 @@ urxvtd -q -f -o &
 compton -b --config ~/.config/compton.conf
 # set wallpaper
 feh -z --bg-fill ~/wallpapers
-# set up f.lux
-xflux-run
+# launch redshift
+redshift-run &
 # start conky
 conky-dwm
 
