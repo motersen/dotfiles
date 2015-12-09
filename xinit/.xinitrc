@@ -26,7 +26,7 @@ cat 2> /dev/null $HOME/.Xresources.d/* | xrdb
 # start urxvt daemon
 urxvtd -q -f -o &
 # start compositor
-compton -CGb &
+compton -b --config ~/.config/compton.conf
 # set wallpaper
 feh -z --bg-fill ~/wallpapers
 # set up f.lux
