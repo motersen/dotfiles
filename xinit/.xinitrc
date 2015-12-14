@@ -20,6 +20,9 @@ xbindkeys
 # map caps lock to control
 setxkbmap -layout de -option ctrl:nocaps
 
+# enable numlock
+numlockx on
+
 # Load Xresources files
 cat 2> /dev/null $HOME/.Xresources.d/* | xrdb
 
