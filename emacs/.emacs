@@ -13,6 +13,9 @@
 (let ((tab-width-4 (set-tab-width 4)))
 	(add-hook 'shell-script-mode tab-width-4))
 
+;; disable clipboard integration
+(setq x-select-enable-clipboard-manager nil)
+
 ;; mode-hooks
 
 (add-hook 'scheme-mode-hook #'paredit-mode)
