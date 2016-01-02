@@ -1,0 +1,37 @@
+#!/usr/bin/sh
+
+path="$HOME/wallpapers"
+
+if [ -f $HOME/.dmenurc ]; then
+    . $HOME/.dmenurc
+else
+    DMENU='dmenu'
+fi
+
+advance () {
+    if [ ! -f $HOME/.potbg ]; then
+	prepare
+    else
+	new=$(head -1 $HOME/.potbg)
+	feh --bg-fill "$path/$new"
+	tail -n +2 $HOME/.potbg > /tmp/.potbgrest &&
+	    echo $new >> /tmp/.potbgrest &&
+	    mv /tmp/.potbgrest $HOME/.potbg
+    fi
+}
+
+prepare () {
+    if [ $1 ]; then
+	filter=$1
+    else
+	filter=$(pot -p $path list-tags | $DMENU -p "Filter $path:" -l 50)
+    fi
+    pot -p $path filter $filter | sort --random-sort > $HOME/.potbg
+    advance
+}
+
+if [ $1 -a $1 = "filter" ]; then
+    prepare $2
+else
+    advance
+fi

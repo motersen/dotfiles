@@ -22,9 +22,6 @@
 ;; reboot
 (xbindkey '(Control Mod4 Shift_R) "systemctl reboot")
 
-;; change wallpaper
-(xbindkey '(Mod4 w) "feh -z --bg-fill ~/wallpapers")
-
 ;; screenshot
 (xbindkey-function 'Print
 	(lambda ()
@@ -33,3 +30,29 @@
 				(string-append "scrot " "~/Bilder/screenshots/"
 					(number->string (car t)) (number->string (cdr t))
 					".png")))))
+
+;;; change background
+
+(define (reset-bg-bindings)
+	(remove-xbindkey '(f))
+	(remove-xbindkey '(Mod4 f))
+	(remove-xbindkey '(Control g)))
+
+;; set new background filter
+(define (filter-bg)
+	(reset-bg-bindings)
+	(run-command "potbg filter"))
+
+;; next background in current filter
+(define (next-bg)
+	(reset-bg-bindings)
+	(run-command "potbg"))
+
+;; M-w f: new filter
+;; M-w M-f: next background
+;; C-g: reset
+(xbindkey-function '(Mod4 release w)
+									 (lambda ()
+										 (xbindkey-function '(f) filter-bg)
+										 (xbindkey-function '(Mod4 f) next-bg)
+										 (xbindkey-function '(Control g) reset-bg-bindings)))

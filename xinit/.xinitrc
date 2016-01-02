@@ -31,7 +31,7 @@ urxvtd -q -f -o &
 # start compositor
 compton -b --config ~/.config/compton.conf
 # set wallpaper
-feh -z --bg-fill ~/wallpapers
+potbg filter nature
 # launch redshift
 redshift-run &
 # start conky
