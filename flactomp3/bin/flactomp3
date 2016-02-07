@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+my $prefix = shift @ARGV || "";
+
+make_output_path();
+convert(get_files());
+
+sub get_files {
+    opendir(my $dir, $prefix) or die $!;
+    my @files;
+    while (my $file = readdir($dir)) {
+	if ($file =~ /.*\.flac$/) {
+	    push @files, $prefix . "/" . $file;
+	}
+    }
+    closedir($dir);
+    @files
+}
+    
+sub make_output_path {
+    system "mkdir -p \"mp3/$prefix\"";
+}
+
+sub convert {
+    my $cmd = "| parallel ffmpeg -i {} -qscale:a 0 \"mp3/{.}.mp3\"";
+    open my $stream, $cmd;
+    local $" = "\n";
+    print $stream "@_", "\n";
+    close $stream;
+}
