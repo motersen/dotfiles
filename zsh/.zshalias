@@ -1,3 +1,4 @@
+alias e=$EDITOR
 alias fehfull="feh -F -Y -Z"
 # color ls output in terminal
 alias ls='ls --color=auto'
