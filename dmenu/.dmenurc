@@ -1,2 +1,1 @@
-DMENU='dmenu -f -fn terminus:style=regular:pixelsize=12'
-DMENU+=' -nb #303030 -nf #bbbbbb -sb #404040 -sf #f0f0f0'
+DMENU='dmenu -f'
