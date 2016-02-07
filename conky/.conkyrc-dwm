@@ -8,7 +8,9 @@ use_spacer none
 if_up_strictness address
 
 TEXT
-${if_up enp2s0}e | ${endif}\
-${if_up wlp3s0}w ${wireless_link_qual_perc wlp3s0}% | ${endif}\
-cpu ${cpu}% | m ${memperc}% | s ${swapperc}% | \
-${time %a %d %b %T}
+${if_up enp2s0}[eth] // ${endif}\
+${if_up wlp3s0}w ${wireless_link_qual_perc wlp3s0}% // ${endif}\
+cpu:${cpu}% // \
+m:${memperc}% // \
+s:${swapperc}% // \
+${time %a %d %b %H:%M}
