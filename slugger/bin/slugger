@@ -1,0 +1,46 @@
+#!/usr/bin/env gosh
+
+(define (slugify string)
+	(let ((dash '(#\space #\tab #\newline #\: #\_ #\-))
+				(substitute '((#\x00df (#\s #\s)))))
+		(let slugify ((chars (string->list string))
+									(slug (list)))
+			(if (null? chars)
+					(list->string (reverse slug))
+					(let ((c (car chars)))
+						(cond
+						 ((char-alphabetic? c)
+							(slugify (cdr chars) (cons (char-downcase c) slug)))
+						 ((char-numeric? c)
+							(slugify (cdr chars) (cons c slug)))
+						 ((memv c dash)
+							; no consecutive dashes in the slug
+							(if (eqv? #\- (car slug))
+									(slugify (cdr chars) slug)
+									(slugify (cdr chars) (cons #\- slug))))
+						 ((assv c substitute) =>
+							(lambda (pair)
+								(slugify (cdr chars) (append (reverse (cadr pair)) slug))))
+						 (else
+							(slugify (cdr chars) slug))))))))
+
+(define (fold-left proc p rest)
+	(if (null? rest)
+			p
+			(fold-left proc (proc p (car rest)) (cdr rest))))
+
+(define (read-all lines)
+	(let ((line (read-line)))
+		(if (eof-object? line)
+				(fold-left string-append "" (reverse lines))
+				(read-all (cons line lines)))))
+
+(define (main args)
+	(define (display-slug slug)
+		(display slug)
+		(newline))
+	(if (null? (cdr args))
+			(display-slug (slugify (read-all (list))))
+			(for-each display-slug
+								(map slugify (cdr args))))
+	0)
