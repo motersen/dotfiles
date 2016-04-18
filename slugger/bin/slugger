@@ -2,23 +2,24 @@
 
 (define (slugify string)
 	(let ((dash '(#\space #\tab #\newline #\: #\_ #\-))
-				(substitute '((#\x00df (#\s #\s)))))
+				(substitute '((#xdf (#\s #\s)))))
 		(let slugify ((chars (string->list string))
 									(slug (list)))
 			(if (null? chars)
 					(list->string (reverse slug))
-					(let ((c (car chars)))
+					(let ((c (car chars))
+								(codepoint (char->integer (car chars))))
 						(cond
-						 ((char-alphabetic? c)
-							(slugify (cdr chars) (cons (char-downcase c) slug)))
-						 ((char-numeric? c)
+						 ((or (<= #x30 codepoint #x39)	; digit
+									(<= #x61 codepoint #x7a)) ; lowercase ascii letter
 							(slugify (cdr chars) (cons c slug)))
+						 ((<= #x41 codepoint #x5a)	; uppercase ascii letter
+							(slugify (cdr chars) (cons (char-downcase c) slug)))
 						 ((memv c dash)
-							; no consecutive dashes in the slug
-							(if (eqv? #\- (car slug))
+							(if (eqv? #\- (car slug)) ; no consecutive dashes
 									(slugify (cdr chars) slug)
 									(slugify (cdr chars) (cons #\- slug))))
-						 ((assv c substitute) =>
+						 ((assv codepoint substitute) =>
 							(lambda (pair)
 								(slugify (cdr chars) (append (reverse (cadr pair)) slug))))
 						 (else
