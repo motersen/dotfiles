@@ -1,9 +1,7 @@
 #!/usr/bin/guile -s
 !#
 
-(display
-  (let ((time (gettimeofday)))
-	(string-append
-	  (number->string (car time))
-	  (number->string (cdr time)))))
+(let ((time (gettimeofday)))
+	(display (car time))
+	(display (cdr time)))
 (newline)
