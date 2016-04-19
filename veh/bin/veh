@@ -1,0 +1,10 @@
+#!/usr/bin/env gosh
+
+(define (main args)
+	(let ((command "feh")
+				(args (append
+							 (list "-F" "-Y" "-Z")
+							 (if (null? (cdr args))
+									 (list "-f" "-")
+									 (cdr args)))))
+		(sys-exec command (cons command args))))
