@@ -30,8 +30,8 @@ cat 2> /dev/null $HOME/.Xresources.d/* | xrdb
 urxvtd -q -f -o &
 # start compositor
 compton -b --config ~/.config/compton.conf
-# set wallpaper
-potbg filter nature
+# initialize wallpaper selection and set the first
+potbg filter "photo/text"
 # launch redshift
 redshift-run &
 # start conky
