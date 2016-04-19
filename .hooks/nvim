@@ -4,4 +4,7 @@ echo "Bootstrapping plug.vim";
 curl -fLso 'nvim/.config/nvim/autoload/plug.vim' --create-dirs \
  'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim';
 echo "Installing vim-plug Packages";
-nvim -c "PlugUpdate" > /dev/null;
+nvim --headless "+PlugInstall" 2>/dev/null &
+NPID=$!;
+sleep 5;
+kill $NPID;

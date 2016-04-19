@@ -59,7 +59,8 @@ set cursorline
 
 syntax on
 set background=dark
-colorscheme gruvbox
+" don't block before it's installed
+silent! colorscheme gruvbox
 
 let g:airline_theme='simple'
 " Always display vim-airline
