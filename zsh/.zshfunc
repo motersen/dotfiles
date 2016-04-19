@@ -2,6 +2,10 @@ diskspace () {
   du -ah $1 2>/dev/null | tail -1
 }
 
+subdirs () {
+    find $1 -maxdepth 1 ! -name $1 -type d
+}
+
 unreq-size () {
 	pacman -Qdt | awk '{print $1;}' | xargs pacman -Qi \
 		| awk '/^Name/ {printf $3 " ";} /^Installed Size/ {print $4 $5;}' \
