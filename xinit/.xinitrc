@@ -26,8 +26,8 @@ numlockx on
 # Load Xresources files
 cat 2> /dev/null $HOME/.Xresources.d/* | xrdb
 
-# start urxvt daemon
-urxvtd -q -f -o &
+# # start urxvt daemon
+# urxvtd -q -f -o &
 # start compositor
 compton -b --config ~/.config/compton.conf
 # initialize wallpaper selection and set the first

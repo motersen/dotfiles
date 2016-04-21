@@ -1,5 +1,5 @@
 ;; start terminal client
-(xbindkey '(Mod4 Shift Return) "urxvtc")
+(xbindkey '(Mod4 Shift Return) "termite")
 
 ;; launch emacs
 (xbindkey '(Control Mod1 e) "emacs")
