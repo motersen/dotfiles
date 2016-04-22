@@ -2,6 +2,7 @@
 
 (defun set-tab-width (w)
 	`(lambda ()
+		 (setq indent-tabs-mode t)
 		 (setq tab-width ,w)))
 
 (let ((tab-width-2 (set-tab-width 2)))
@@ -12,6 +13,12 @@
 
 (let ((tab-width-4 (set-tab-width 4)))
 	(add-hook 'shell-script-mode tab-width-4))
+
+(let ((tab-width-8 (set-tab-width 8)))
+	(add-hook 'c-mode-hook tab-width-8))
+
+(setq c-default-style "k&r"
+			c-basic-offset 8)
 
 (defadvice find-file (after find-file-sudo activate)
 	"Find file as root if necessary."
