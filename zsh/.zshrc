@@ -22,7 +22,8 @@ source ~/.zshbind
 # Display username, last exit status and pwd in prompt
 # Remove prompt when pasting previous commands
 nbsp=$'\u00a0'
-PROMPT="%n %? %~:$nbsp"
+setopt promptsubst
+PROMPT="%n %? \$(pwdxz):$nbsp"
 bindkey -s $nbsp '^u'
 
 export CHICKEN_REPOSITORY="/home/motersen/chicken"
