@@ -1,22 +1,13 @@
-#!/usr/bin/scsh -s
-!#
+#!/usr/bin/env perl
 
-(define cli-args command-line-arguments)
+use strict;
+use warnings;
 
-(define (next-arg)
-	(if (null? cli-args)
-		#f
-		(let ((arg (car cli-args)))
-			(set! cli-args (cdr cli-args))
-			arg)))
+my $lines = shift @ARGV || 1;
+my $dir = shift @ARGV || "";
 
-(let ((n (or (next-arg) "1"))
-			(dir (next-arg)))
-	(map
-		(lambda (file)
-			(display file) (newline))
-		(run/strings
-			(| ,(if dir
-						`(ls -1t ,dir)
-						'(ls -1t))
-				 (head -n ,n)))))
+open my $files, "ls -1t $dir |";
+while ($lines-- and my $line = <$files>) {
+    print $line;
+}
+close $files;
