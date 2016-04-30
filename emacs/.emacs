@@ -29,6 +29,9 @@
 ;; disable clipboard integration
 (setq x-select-enable-clipboard-manager nil)
 
+;; follow symlinks to version-controlled files
+(setq vc-follow-symlinks t)
+
 ;; mode-hooks
 
 (add-hook 'scheme-mode-hook #'paredit-mode)
