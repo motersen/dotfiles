@@ -36,26 +36,23 @@
 
 ;;; change background
 
-(define (reset-bg-bindings)
-	(remove-xbindkey '(w))
-	(remove-xbindkey '(Mod4 w))
-	(remove-xbindkey '(Control g)))
-
-;; set new background filter
-(define (filter-bg)
-	(reset-bg-bindings)
-	(run-command "potbg filter"))
-
-;; next background in current filter
-(define (next-bg)
-	(reset-bg-bindings)
-	(run-command "potbg"))
-
-;; M-w w: new filter
-;; M-w M-w: next background
-;; C-g: reset
+;; Mod-w Mod-r: set new filter
+;; Mod-w (< 1s) Mod-w: next wallpaper in current filter
 (xbindkey-function '(Mod4 release w)
-									 (lambda ()
-										 (xbindkey-function '(w) filter-bg)
-										 (xbindkey-function '(Mod4 w) next-bg)
-										 (xbindkey-function '(Control g) reset-bg-bindings)))
+									 (let ((time 0)
+												 (count 0))
+										 (xbindkey-function
+											'(Mod4 release r)
+											(lambda ()
+												(if (> count 0)
+														(begin
+															(run-command "potbg filter")
+															(set! count 0)))))
+										 (lambda ()
+											 (set! count (+ 1 count))
+											 (if (> count 1)
+													 (let ((interval (- (current-time) time)))
+														 (if (< interval 1)
+																 (run-command "potbg"))
+														 (set! count 0)))
+											 (set! time (current-time)))))
