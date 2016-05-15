@@ -37,8 +37,8 @@
 ;;; change background
 
 (define (reset-bg-bindings)
-	(remove-xbindkey '(f))
-	(remove-xbindkey '(Mod4 f))
+	(remove-xbindkey '(w))
+	(remove-xbindkey '(Mod4 w))
 	(remove-xbindkey '(Control g)))
 
 ;; set new background filter
@@ -51,11 +51,11 @@
 	(reset-bg-bindings)
 	(run-command "potbg"))
 
-;; M-w f: new filter
-;; M-w M-f: next background
+;; M-w w: new filter
+;; M-w M-w: next background
 ;; C-g: reset
 (xbindkey-function '(Mod4 release w)
 									 (lambda ()
-										 (xbindkey-function '(f) filter-bg)
-										 (xbindkey-function '(Mod4 f) next-bg)
+										 (xbindkey-function '(w) filter-bg)
+										 (xbindkey-function '(Mod4 w) next-bg)
 										 (xbindkey-function '(Control g) reset-bg-bindings)))
