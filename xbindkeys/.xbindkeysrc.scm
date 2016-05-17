@@ -36,16 +36,18 @@
 
 ;;; change background
 
-;; Mod-w Mod-r: set new filter
-;; Mod-w (< 1s) Mod-w: next wallpaper in current filter
+;; Mod-w [0,1)s Mod-r: set new filter
+;; Mod-w [0,1)s Mod-w: next wallpaper in current filter
 (let ((time 0)
 			(count 0))
 	(xbindkey-function '(Mod4 release r)
 										 (lambda ()
 											 (if (> count 0)
-													 (begin
-														 (run-command "potbg filter")
-														 (set! count 0)))))
+													 (let ((interval (- (current-time) time)))
+														 (if (< interval 1)
+																 (begin
+																	 (run-command "potbg filter")
+																	 (set! count 0)))))))
 	(xbindkey-function '(Mod4 release w)
 										 (lambda ()
 											 (if (> count 0)
