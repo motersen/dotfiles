@@ -53,6 +53,8 @@
 											 (if (> count 1)
 													 (let ((interval (- (current-time) time)))
 														 (if (< interval 1)
-																 (run-command "potbg"))
-														 (set! count 0)))
+																 (begin
+																	 (run-command "potbg")
+																	 (set! count 0))
+																 (set! count 1))))
 											 (set! time (current-time)))))
