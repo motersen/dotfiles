@@ -6,6 +6,7 @@ alias l='ls -1'
 alias ll='ls -lh'
 alias la='ls -lAh'
 alias grep='grep --color'
+alias mountforme="sudo mount -o uid=$(whoami),gid=users"
 alias path="echo \$PATH | sed 's|:|\\n|g' | sort"
 alias addon-sdk="cd /opt/addon-sdk \
 				 && source bin/activate \
