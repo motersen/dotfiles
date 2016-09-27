@@ -8,10 +8,6 @@ use File::Path qw(make_path);
 
 open my $stream, '| parallel -j -1 ffmpeg -loglevel error -y -i {} -qscale:a 0 "mp3/{.}.mp3"';
 while (my $input = <STDIN>) {
-    unless ($input =~ m|\.flac$|) {
-	print "$input not flac\n";
-	continue;
-    }
     make_output_path(dirname($input));
     print $stream $input;
 }
