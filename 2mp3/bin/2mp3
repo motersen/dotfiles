@@ -6,7 +6,7 @@ use strict;
 use File::Basename;
 use File::Path qw(make_path);
 
-open my $stream, '| parallel -j -1 ffmpeg -loglevel error -y -i {} -qscale:a 0 "mp3/{.}.mp3"';
+open my $stream, '| parallel -j -1 --bar ffmpeg -loglevel error -y -i {} -qscale:a 0 "mp3/{.}.mp3"';
 while (my $input = <STDIN>) {
     make_output_path(dirname($input));
     print $stream $input;
