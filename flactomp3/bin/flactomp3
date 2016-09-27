@@ -6,7 +6,7 @@ use strict;
 use File::Basename;
 use File::Path qw(make_path);
 
-open my $stream, '| parallel ffmpeg -loglevel error -i {} -qscale:a 0 "mp3/{.}.mp3"';
+open my $stream, '| parallel ffmpeg -loglevel error -y -i {} -qscale:a 0 "mp3/{.}.mp3"';
 while (my $input = <STDIN>) {
     unless ($input =~ m|\.flac$|) {
 	print "$input not flac\n";
