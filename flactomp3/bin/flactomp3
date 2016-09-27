@@ -3,31 +3,20 @@
 use warnings;
 use strict;
 
-my $prefix = shift @ARGV || "";
+use File::Basename;
+use File::Path qw(make_path);
 
-make_output_path();
-convert(get_files());
-
-sub get_files {
-    opendir(my $dir, $prefix) or die $!;
-    my @files;
-    while (my $file = readdir($dir)) {
-	if ($file =~ /.*\.flac$/) {
-	    push @files, $prefix . "/" . $file;
-	}
+open my $stream, '| parallel ffmpeg -i {} -qscale:a 0 "mp3/{.}.mp3"';
+while (my $input = <STDIN>) {
+    unless ($input =~ m|\.flac$|) {
+	print "$input not flac\n";
+	continue;
     }
-    closedir($dir);
-    @files
+    make_output_path(dirname($input));
+    print $stream $input;
 }
-    
-sub make_output_path {
-    system "mkdir -p \"mp3/$prefix\"";
-}
+close $stream;
 
-sub convert {
-    my $cmd = "| parallel ffmpeg -i {} -qscale:a 0 \"mp3/{.}.mp3\"";
-    open my $stream, $cmd;
-    local $" = "\n";
-    print $stream "@_", "\n";
-    close $stream;
+sub make_output_path {
+    make_path "mp3/${\shift}";
 }
