@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ -f $HOME/.surfrc ]; then
+    . $HOME/.surfrc
+else
+    SURF='surf'
+fi
+
+SURF+=' -e'
+
+exec tabbed -c -n surf $SURF
