@@ -1,3 +1,9 @@
 #!/usr/bin/sh
 
-exec surf -b "https://duckduckgo.com/"
+if [ -f $HOME/.surfrc ]; then
+    . $HOME/.surfrc
+else
+    SURF='surf'
+fi
+
+exec $SURF "https://duckduckgo.com/"
