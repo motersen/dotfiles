@@ -1,11 +1,9 @@
 #!/bin/sh
 
-if [ -f $HOME/.surfrc ]; then
-    . $HOME/.surfrc
-else
-    SURF='surf'
-fi
+COOKIEFILE="/tmp/surfcookies-$$.txt"
 
-SURF+=' -e'
+SURF="surf-run -c $COOKIEFILE -e"
 
-exec tabbed -c -n surf $SURF
+tabbed -c -n surf $SURF
+
+rm -f $COOKIEFILE
