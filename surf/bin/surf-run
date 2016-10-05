@@ -6,4 +6,4 @@ else
     SURF='surf'
 fi
 
-exec $SURF "https://duckduckgo.com/"
+exec $SURF "$@" "https://duckduckgo.com/"
