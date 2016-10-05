@@ -14,9 +14,8 @@ advance () {
     else
 	new=$(head -1 $HOME/.potbg)
 	feh --bg-fill "$path/$new"
-	tail -n +2 $HOME/.potbg > /tmp/.potbgrest &&
-	    echo $new >> /tmp/.potbgrest &&
-	    mv /tmp/.potbgrest $HOME/.potbg
+	sed -i '1 d' $HOME/.potbg &&
+	    echo $new >> $HOME/.potbg
     fi
 }
 
