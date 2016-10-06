@@ -14,8 +14,7 @@ advance () {
     else
 	new=$(head -1 $HOME/.potbg)
 	feh --bg-fill "$path/$new"
-	sed -i '1 d' $HOME/.potbg &&
-	    echo $new >> $HOME/.potbg
+	sed -in -e '1 d' -e "\$ a \\$new" $HOME/.potbg
     fi
 }
 
