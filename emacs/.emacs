@@ -1,3 +1,7 @@
+;; Mode detection
+
+(add-to-list 'auto-mode-alist '("PKGBUILD" . sh-mode))
+
 ;; Indentation
 
 (defun set-tab-width (w)
