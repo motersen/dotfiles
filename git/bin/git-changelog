@@ -1,0 +1,10 @@
+#!/bin/sh
+
+exec git show-ref --tags -d |
+	sed -n '/\^{}$/ {s: .*$:: p}' |
+	tac |
+	while read hash; do
+		git show -s --format='format:%B' $hash;
+		echo;
+	done |
+	sed '$ d'
