@@ -12,7 +12,7 @@
 	(add-hook 'scheme-mode-hook tab-width-2))
 
 (let ((tab-width-4 (set-tab-width 4)))
-	(add-hook 'shell-script-mode tab-width-4))
+	(add-hook 'sh-mode-hook tab-width-4))
 
 (let ((tab-width-8 (set-tab-width 8)))
 	(add-hook 'c-mode-hook tab-width-8))
