@@ -1,0 +1,55 @@
+#!/bin/sh
+
+: ${PAPER:='a4paper'}
+: ${FONTSIZE:='11pt'}
+: ${TABSIZE:=4}
+
+echo "\\documentclass["
+echo "  $PAPER,"
+echo "  $FONTSIZE,"
+
+cat <<EOF
+]{article}
+
+\usepackage{xltxtra}
+
+\usepackage{listings}
+
+\usepackage[
+  left=5em,
+  right=1cm,
+  top=1em,
+  bottom=2cm,
+]{geometry}
+
+\usepackage{fancyhdr}
+
+\fancypagestyle{plain}{
+  \cfoot{\ttfamily \thepage}
+}
+
+\pagestyle{plain}
+
+\lstset{
+  basicstyle=\ttfamily,
+  commentstyle=,
+  identifierstyle=,
+  keywordstyle=,
+  showstringspaces=true,
+  numbers=left,
+  numberstyle=\ttfamily,
+  lineskip=-.25ex,
+  frame=leftline,
+EOF
+
+echo "  tabsize=$TABSIZE,"
+
+cat <<EOF
+}
+
+\begin{document}
+EOF
+
+for file in "$@"; do echo "\\lstinputlisting[title={\\ttfamily \\underline{$(basename $file)}}]{$file}"; done
+
+echo '\end{document}'
