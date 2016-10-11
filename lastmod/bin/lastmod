@@ -1,5 +1,3 @@
 #!/bin/sh
 
-LENGTH=${1:-"1"}
-
-ls -1t $2 | head -$LENGTH
+ls -1t $2 | head -${1:-"1"}
