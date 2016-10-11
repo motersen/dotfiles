@@ -1,13 +1,5 @@
-#!/usr/bin/env perl
+#!/bin/sh
 
-use strict;
-use warnings;
+LENGTH=${1:-"1"}
 
-my $lines = shift @ARGV || 1;
-my $dir = shift @ARGV || "";
-
-open my $files, "ls -1t $dir |";
-while ($lines-- and my $line = <$files>) {
-    print $line;
-}
-close $files;
+ls -1t $2 | head -$LENGTH
