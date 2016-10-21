@@ -5,7 +5,7 @@
 (xbindkey '(Control Mod1 e) "emacs")
 
 ;; launch surf
-(xbindkey '(Mod4 s) "surf-run")
+(xbindkey '(Mod4 s) "surf-tabbed")
 
 ;; launcher
 (xbindkey '(Mod4 d) "dmenu-run")
