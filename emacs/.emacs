@@ -27,6 +27,9 @@
 
 (add-hook 'markdown-mode-hook (lambda () (auto-fill-mode 72)))
 
+(add-hook 'scheme-mode-hook #'paredit-mode)
+(add-hook 'emacs-lisp-mode-hook #'paredit-mode)
+
 ;;; Options
 
 (defadvice find-file (after find-file-sudo activate)
@@ -42,12 +45,6 @@
 (setq vc-follow-symlinks t)
 
 (put 'upcase-region 'disabled nil)
-
-;; mode-hooks
-
-; enable paredit
-(add-hook 'scheme-mode-hook #'paredit-mode)
-(add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 
 ;;; Appearance
 
