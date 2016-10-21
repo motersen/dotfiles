@@ -27,6 +27,8 @@
 
 (add-hook 'markdown-mode-hook (lambda () (auto-fill-mode 72)))
 
+;;; Options
+
 (defadvice find-file (after find-file-sudo activate)
 	"Find file as root if necessary."
 	(unless (and buffer-file-name
@@ -38,6 +40,8 @@
 
 ;; follow symlinks to version-controlled files
 (setq vc-follow-symlinks t)
+
+(put 'upcase-region 'disabled nil)
 
 ;; mode-hooks
 
