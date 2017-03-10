@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "Retrieving zsh history-substring-search";
+curl -fLso "$HOME/dotfiles/zsh/.zshscripts.d/history-substring-search.zsh" \
+	 --create-dirs \
+	 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/history-substring-search/history-substring-search.zsh';
+# link .zshscripts.d/
+stow -vd "$HOME/dotfiles" zsh;

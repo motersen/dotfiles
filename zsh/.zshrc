@@ -14,6 +14,8 @@ compinit
 # enable colors
 autoload -U colors && colors
 
+source ~/.zshscripts.d/history-substring-search.zsh
+
 source ~/.zshalias
 source ~/.zshfunc
 source ~/.zshwidget
