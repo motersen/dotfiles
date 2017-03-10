@@ -7,6 +7,9 @@
 ;; launch surf
 (xbindkey '(Mod4 s) "surf-tabbed")
 
+;; watch youtube video link in x selection
+(xbindkey '(Mod4 y) "yt \"$(xclip -o)\"")
+
 ;; launcher
 (xbindkey '(Mod4 d) "dmenu-run")
 
