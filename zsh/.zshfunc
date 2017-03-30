@@ -2,6 +2,10 @@ diskspace () {
   du -ah $1 2>/dev/null | tail -1
 }
 
+nless () {
+	nl -ba $1 | less
+}
+
 subdirs () {
     find $1 -maxdepth 1 ! -name $1 -type d
 }
