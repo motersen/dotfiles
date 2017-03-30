@@ -1,5 +1,5 @@
 diskspace () {
-  du -ah $1 2>/dev/null | tail -1
+	du -ah $1 2>/dev/null | tail -1
 }
 
 nless () {
@@ -7,7 +7,7 @@ nless () {
 }
 
 subdirs () {
-    find $1 -maxdepth 1 ! -name $1 -type d
+	find $1 -maxdepth 1 ! -name $1 -type d
 }
 
 unreq-size () {
