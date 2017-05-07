@@ -2,7 +2,7 @@
 (xbindkey '(Mod4 Shift Return) "termite")
 
 ;; launch emacs
-(xbindkey '(Control Mod1 e) "emacs")
+(xbindkey '(Control Mod1 e) "termite -e \"$EDITOR\"")
 
 ;; launch surf
 (xbindkey '(Mod4 s) "surf-tabbed")
