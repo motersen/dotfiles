@@ -1,6 +1,12 @@
+;; Autoload
+
+(autoload 'log-edit-mode "vc/log-edit" "Major mode for editing CVS commit messages" t)
+(autoload 'git-commit-mode "git-commit" "Edit Git commit messages" t)
+
 ;; Mode detection
 
 (add-to-list 'auto-mode-alist '("PKGBUILD" . sh-mode))
+(add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . git-commit-mode))
 
 ;; Indentation
 
