@@ -1,7 +1,6 @@
 [color]
 	ui = auto
 [core]
-	editor = nvim
 	abbrev = 12
 [push]
 	default = simple
