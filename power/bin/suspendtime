@@ -1,0 +1,90 @@
+#!/usr/bin/scheme --script
+
+(define read-arguments #f)
+(define register-argument #f)
+(define get-argument-value #f)
+
+(let ((arguments (cdr (command-line)))
+			(argument-names (list))
+			(argument-values (list)))
+	(letrec ((read-args
+						(lambda (arguments)
+							(if (pair? arguments)
+									(if (char=? #\: (string-ref (car arguments) 0))
+											(let ((keyword (substring (car arguments) 1 (string-length (car arguments))))
+														(value (cadr arguments)))
+												(set-argument keyword value)
+												(read-args (cddr arguments)))
+											(let ((value (car arguments)))
+												(set-argument #f value)
+												(read-args (cdr arguments))))
+									(list))))
+					 (set-argument
+						(lambda (keyword value)
+							(let* ((name (drop-argument-name keyword))
+										 (symbol (string->symbol name)))
+								(set! argument-values (append argument-values (list symbol value))))))
+					 (drop-argument-name
+						(lambda (keyword)
+							(if keyword
+									(let ((name keyword))
+										(set! argument-names
+											(let find-name ((names argument-names))
+												 (if (pair? names)
+														 (if (string=? keyword (car names))
+																 (cdr names)
+																 (cons (car names) (find-name (cdr names))))
+														 (list))))
+										name)
+									(let ((name (car argument-names)))
+										(set! argument-names (cdr argument-names))
+										name))))
+					 (get-value
+						(lambda (argument-values symbol)
+							(if (pair? argument-values)
+									(if (symbol=? symbol (car argument-values))
+											(cadr argument-values)
+											(get-value (cddr argument-values) symbol))
+									#f))))
+		(set! read-arguments
+			(lambda ()
+				(read-args arguments)))
+		(set! register-argument
+			(lambda (name)
+				(set! argument-names (append argument-names (list name)))))
+		(set! get-argument-value
+			(lambda (symbol)
+				(get-value argument-values symbol)))))
+
+(register-argument "run-time")
+(register-argument "stop-time")
+(register-argument "pid")
+
+(read-arguments)
+
+(let* ((pid (get-argument-value 'pid))
+			 (time-continue (get-argument-value 'run-time))
+			 (time-stop (get-argument-value 'stop-time)))
+
+	;; (format #t "time-continue: ~s seconds~%" time-continue)
+	;; (format #t "time-stop: ~s seconds~%" time-stop)
+	;; (format #t "pid: ~s~%" pid)
+
+	(letrec ((check
+						(lambda ()
+							(if (or (not pid)
+											(file-directory? (format "/proc/~s" pid)))
+									(stop)
+									(format #t "Process ~s has terminated, exiting...~%" pid))))
+					 (continue
+						(lambda ()
+							(sleep (make-time 'time-duration 0 time-continue))
+							(format #t "Running for ~s seconds...~%" time-continue)
+							(check)))
+					 (stop
+						(lambda ()
+							(format #t "Stopping for ~s seconds...~%" time-stop)
+							(system (format "rtcwake -s ~s -m mem" time-stop))
+							(format #t "continuing...~%")
+							(continue))))
+		(continue)))
