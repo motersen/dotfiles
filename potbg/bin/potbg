@@ -1,6 +1,7 @@
 #!/usr/bin/sh
 
 path="$HOME/wallpapers"
+BGCMD=${BGCMD-"feh --bg-fill"}
 
 if [ -f $HOME/.dmenurc ]; then
     . $HOME/.dmenurc
@@ -13,7 +14,7 @@ advance () {
 	prepare
     else
 	new=$(head -1 $HOME/.potbg)
-	feh --bg-fill "$path/$new"
+	$BGCMD "$path/$new"
 	sed -in -e '1 d' -e "\$ a \\$new" $HOME/.potbg
     fi
 }
