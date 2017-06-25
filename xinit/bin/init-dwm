@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export BGCMD="feh --bg-fill";
+xinit dwm;

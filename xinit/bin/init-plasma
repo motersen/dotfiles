@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export BGCMD="set-plasma-bg";
+xinit plasma;
