@@ -47,9 +47,8 @@
 	(define (display-slug slug)
 		(display slug)
 		(newline))
-	(display-slug
-	 (slugify
-		(if (null? (cdr args))
-				(read-all (list))
-				(fold-left string-append "" (cdr args)))))
+	(if (null? (cdr args))
+			(display-slug (slugify (read-all (list))))
+			(for-each display-slug
+								(map slugify (cdr args))))
 	0)
