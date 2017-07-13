@@ -75,6 +75,13 @@
 ; don't show the start screen
 (setq inhibit-startup-screen t)
 
+;; shutdown emacs server instance
+(defun kill-daemon ()
+	"Save buffers, Quit, and Shutdown (kill) server"
+	(interactive)
+	(save-some-buffers)
+	(kill-emacs))
+
 ;; Packages
 
 (require 'package)

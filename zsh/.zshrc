@@ -29,5 +29,5 @@ PROMPT="%n %? \$(pwdxz):$nbsp"
 bindkey -s $nbsp '^u'
 
 export CHICKEN_REPOSITORY="/home/motersen/chicken"
-export EDITOR="emacs -nw"
+export EDITOR="emacsclient -nw"
 export KEYTIMEOUT=1
