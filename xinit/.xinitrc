@@ -45,6 +45,12 @@ case $session in
 		# start conky
 		conky-dwm
 		exec dwm;;
+	stumpwm)
+		# start compositor
+		compton -b --config ~/.config/compton.conf
+		# initialize wallpaper rotation and set first one
+		potbg filter $BGFILTER
+		exec stumpwm;;
 	plasma)
 		# initialize wallpaper rotation and set first one
 		potbg filter $BGFILTER
