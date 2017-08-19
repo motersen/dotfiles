@@ -1,0 +1,14 @@
+#!/bin/sh
+
+DIR=$(set -- $HOME/.conkeror.mozdev.org/conkeror/*.default; echo $1)
+
+sqlite3 $DIR/cookies.sqlite <<EOF
+begin;
+drop table moz_cookies;
+commit;
+.quit
+EOF
+
+rm -f $DIR/cookies[.-]*
+
+exec $(which --skip-tilde conkeror)
