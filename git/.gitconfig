@@ -7,7 +7,7 @@
 [user]
 	email = moritz.petersen@freenet.de
 	name = Moritz Petersen
-	signingkey = E75F0878
+	signingkey = DF224B2B
 [log]
 	abbrevCommit = yes
 [alias]
