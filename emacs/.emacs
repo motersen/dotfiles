@@ -7,6 +7,11 @@
 
 (add-to-list 'auto-mode-alist '("PKGBUILD" . sh-mode))
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . git-commit-mode))
+(add-to-list 'auto-mode-alist '("mutt-" . text-mode))
+
+(add-hook 'text-mode-hook (lambda ()
+														(setq fill-column 80)
+														(turn-on-auto-fill)))
 
 ;; Indentation
 
