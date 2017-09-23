@@ -35,7 +35,7 @@ redshift-run &
 
 emacs --daemon &
 
-session=${1:-dwm}
+session=${1:-stumpwm}
 case $session in
 	dwm)
 		# start compositor
