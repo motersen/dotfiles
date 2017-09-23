@@ -33,8 +33,6 @@ cat 2> /dev/null $HOME/.Xresources.d/* | xrdb
 # launch redshift
 redshift-run &
 
-emacs --daemon &
-
 session=${1:-stumpwm}
 case $session in
 	dwm)
