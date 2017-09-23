@@ -63,17 +63,17 @@
 (read-arguments)
 
 (let* ((pid (get-argument-value 'pid))
-			 (time-continue (get-argument-value 'run-time))
-			 (time-stop (get-argument-value 'stop-time)))
+			 (time-continue (string->number (get-argument-value 'run-time)))
+			 (time-stop (string->number (get-argument-value 'stop-time))))
 
-	;; (format #t "time-continue: ~s seconds~%" time-continue)
-	;; (format #t "time-stop: ~s seconds~%" time-stop)
-	;; (format #t "pid: ~s~%" pid)
+	(format #t "time-continue: ~s seconds~%" time-continue)
+	(format #t "time-stop: ~s seconds~%" time-stop)
+	(format #t "pid: ~s~%" pid)
 
 	(letrec ((check
 						(lambda ()
 							(if (or (not pid)
-											(file-directory? (format "/proc/~s" pid)))
+											(file-directory? (format "/proc/~a" pid)))
 									(stop)
 									(format #t "Process ~s has terminated, exiting...~%" pid))))
 					 (continue
