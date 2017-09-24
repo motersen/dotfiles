@@ -5,6 +5,8 @@
 (setq rcirc-authinfo
 			'(("freenode" nickserv "motersen" rcirc-get-password)))
 
+(setq rcirc-omit-responses '("JOIN" "PART" "QUIT"))
+
 (add-hook 'rcirc-mode-hook
 					(lambda ()
 						(set (make-local-variable 'scroll-conservatively)
