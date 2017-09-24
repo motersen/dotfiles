@@ -1,6 +1,6 @@
 (setq rcirc-server-alist
 			'(("irc.freenode.net" :port 6697 :encryption tls
-				 :channels ("#freenode"))))
+				 :channels ("#archlinux" "#emacs" "#lisp" "#scheme" "#haskell" "#conkeror"))))
 
 (setq rcirc-authinfo
 			'(("freenode" nickserv "motersen" rcirc-get-password)))
