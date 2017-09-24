@@ -28,6 +28,9 @@
 ;; reboot
 (xbindkey '(Control Mod4 Shift_R) "systemctl reboot")
 
+;; paste password
+(xbindkey '(Mod4 v) "passmenu -l 5 && xdotool type \"$(xclip -selection clipboard -o)\"")
+
 ;; screenshot
 (xbindkey-function 'Print
 	(lambda ()
