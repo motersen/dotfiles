@@ -18,6 +18,7 @@
 (require 'init-paredit-mode)
 (require 'init-editor)
 (require 'init-gui)
+(require 'init-mail)
 
 (require 'init-rcirc)
 
