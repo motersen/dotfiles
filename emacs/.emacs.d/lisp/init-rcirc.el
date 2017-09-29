@@ -10,7 +10,8 @@
 (add-hook 'rcirc-mode-hook
 					(lambda ()
 						(set (make-local-variable 'scroll-conservatively)
-								 8192)))
+								 8192)
+						(rcirc-track-minor-mode 1)))
 
 (defun rcirc-get-password (host nick)
 	(replace-regexp-in-string "\n\\'" ""
