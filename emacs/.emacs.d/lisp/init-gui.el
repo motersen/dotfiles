@@ -11,6 +11,14 @@
 ; display column number in modeline
 (column-number-mode)
 
+; only blink cursor 3 times
+(setq blink-cursor-blinks 3)
+; stretch cursor over wide characters (tabs)
+(setq x-stretch-cursor t)
+; blink off as horizontal bar when using box cursor
+(add-to-list 'blink-cursor-alist '(box . hbar))
+(setq-default cursor-type 'box)
+
 (load-theme 'tango-dark)
 
 ; don't show the start screen
