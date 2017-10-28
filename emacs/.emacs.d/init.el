@@ -9,6 +9,8 @@
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . git-commit-mode))
 (add-to-list 'auto-mode-alist '("mutt-" . text-mode))
 
+(global-set-key (kbd "C-x g") 'magit-status)
+
 (require 'init-packages)
 (require 'init-find-file-sudo)
 (require 'init-indentation)
@@ -29,7 +31,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
 	 (quote
-		(haskell-mode clojars markdown-mode paredit gitconfig-mode git-commit-insert-issue git-commit geiser))))
+		(magit haskell-mode clojars markdown-mode paredit gitconfig-mode git-commit-insert-issue git-commit geiser))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
