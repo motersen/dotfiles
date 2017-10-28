@@ -21,6 +21,13 @@
 
 (load-theme 'tango-dark)
 
+; enable line highlighting
+(global-hl-line-mode 1)
+; set background color
+(set-face-background hl-line-face "gray16")
+; keep syntax highlighting
+(set-face-foreground 'highlight nil)
+
 ; don't show the start screen
 (setq inhibit-startup-screen t)
 
