@@ -36,7 +36,7 @@
 	(lambda ()
 		(let ((t (gettimeofday)))
 			(run-command
-				(string-append "scrot " "~/Bilder/screenshots/"
+				(string-append "scrot " "~/screenshots/"
 					(number->string (car t)) (number->string (cdr t))
 					".png")))))
 
