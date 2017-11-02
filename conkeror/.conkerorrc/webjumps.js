@@ -12,5 +12,6 @@ function read_url_ddg_bang_handler (input) {
 	return null;
 }
 
+read_url_handler_list.push(read_url_make_blank_url_handler(homepage));
 read_url_handler_list.push(read_url_subreddit_handler);
 read_url_handler_list.push(read_url_ddg_bang_handler);
