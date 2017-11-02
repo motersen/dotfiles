@@ -21,6 +21,7 @@
 (require 'init-editor)
 (require 'init-gui)
 (require 'init-mail)
+(require 'init-gambit)
 
 (require 'init-rcirc)
 
@@ -31,7 +32,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
 	 (quote
-		(magit haskell-mode clojars markdown-mode paredit gitconfig-mode git-commit-insert-issue git-commit geiser))))
+		(magit haskell-mode clojars markdown-mode paredit gitconfig-mode git-commit-insert-issue git-commit))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
