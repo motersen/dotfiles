@@ -15,3 +15,11 @@
 
 (setq *normal-border-width* 2)
 (setq *window-border-style* :none)
+
+(setq *startup-message*
+			(format nil "~a [~a ~a]"
+							(time-format *time-format-string-default*)
+							(machine-instance)
+							(string-right-trim
+							 '(#\Newline)
+							 (run-shell-command "uname -r" t))))
