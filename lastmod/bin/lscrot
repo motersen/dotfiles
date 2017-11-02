@@ -1,0 +1,5 @@
+#!/bin/sh
+
+SPATH="$HOME/screenshots"
+
+exec sxiv -f $SPATH/$(lastmod ${1:-1} $SPATH)
