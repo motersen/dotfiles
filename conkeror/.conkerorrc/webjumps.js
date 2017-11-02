@@ -6,4 +6,11 @@ function read_url_subreddit_handler (input) {
 	return null;
 }
 
+function read_url_ddg_bang_handler (input) {
+	if (/^!/.test(input))
+		return read_url_make_default_webjump_handler("duckduckgo")(input);
+	return null;
+}
+
 read_url_handler_list.push(read_url_subreddit_handler);
+read_url_handler_list.push(read_url_ddg_bang_handler);
