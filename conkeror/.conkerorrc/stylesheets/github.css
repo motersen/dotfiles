@@ -1,13 +1,10 @@
-@document domain(github.com)
+@-moz-document domain(github.com) {
 
-{
-    div.blob-wrapper div.data {
-	tab-size: 4 !important;
-	-moz-tab-size: 4 !important;
-    }
+	.file .data tr {
+		-moz-tab-size: 4;
+	}
 
-    div.type-scheme {
-	tab-size: 2 !important;
-	-moz-tab-size: 2 !important;
-    }
+	.file .type-scheme tr {
+		-moz-tab-size: 2 !important;
+	}
 }
