@@ -9,4 +9,7 @@
 
 (put 'upcase-region 'disabled nil)
 
+;; enable a-c-mode for all ac-modes
+(global-auto-complete-mode t)
+
 (provide 'init-editor)
