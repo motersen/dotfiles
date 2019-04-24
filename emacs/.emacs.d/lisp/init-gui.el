@@ -1,3 +1,7 @@
+;; start maximized
+(custom-set-variables
+ '(initial-frame-alist '((fullscreen . maximized))))
+
 ; disable scroll-, tool-, and menu-bar
 (if (fboundp 'scroll-bar-mode)
 	(scroll-bar-mode -1))
