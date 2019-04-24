@@ -23,6 +23,7 @@
 (require 'init-mail)
 (require 'init-gambit)
 
+(require 'init-slime)
 (require 'init-rcirc)
 
 (custom-set-variables
